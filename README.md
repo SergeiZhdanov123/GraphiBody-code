@@ -22,17 +22,6 @@ Our most critical data points—contact emails and distribution methods (which d
 1. **Local Environment & Endpoint Testing:** I successfully connected the local worker (`http://localhost:8787`) to all four required external APIs (Exa, Anthropic Claude, Google Sheets, Slack). 
 2. **Database Audit Script:** I wrote a custom Node.js script to parse our 22-row CSV export and flag systemic failures mapped back to the `index.js` logic.
 
-### Missing Secrets Vulnerability
-I discovered that our `.dev.vars` file behaves dangerously if missing credentials:
-
-| Missing Secret | Consequence |
-| :--- | :--- |
-| `GOOGLE_SERVICE_ACCOUNT` | **Critical:** The Google Sheets integration `/sync-sheet` crashes the entire worker instead of failing gracefully. |
-| `EXA_API_KEY` | Search returns empty; the pipeline silently does nothing. |
-| `ANTHROPIC_API_KEY` | Claude AI is skipped; the system falls back entirely to the broken regex logic. |
-
----
-
 ## Database Audit Results (22 Rows)
 
 The custom audit script graded the database against four failure categories. 
