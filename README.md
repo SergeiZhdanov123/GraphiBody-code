@@ -1,8 +1,6 @@
 # Phase 1 Data Audit: Biddy Lead Gen System
 
-**To:** Leadership
-**From:** Engineering
-**Date:** March 1, 2026
+
 **Subject:** Audit Results of the Lead Finder Extraction Pipeline
 
 ---
